@@ -15,9 +15,15 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 const App: FC = () => {
   const [events, setEvents] = useState<Event[]>([
     {
-      title: 'Learn cool stuff',
-      start,
-      end,
+      title: 'Big Meeting',
+      start: new Date(2022, 11, 21),
+      end: new Date(2022, 11, 21),
+    },
+  
+    {
+      title: 'Holla Meeting',
+      start: new Date(2022, 11, 22),
+      end: new Date(2022, 11, 22),
     },
   ])
 
@@ -39,7 +45,7 @@ const App: FC = () => {
 
   return (
     <DnDCalendar
-      defaultView='week'
+      defaultView='month'
       events={events}
       localizer={localizer}
       onEventDrop={onEventDrop}
@@ -65,6 +71,7 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 })
+
 //@ts-ignore
 const DnDCalendar = withDragAndDrop(Calendar)
 
